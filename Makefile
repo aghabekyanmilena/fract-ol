@@ -1,25 +1,33 @@
 NAME = fractol
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+SRC_DIR = src
+INC_DIR = includes
 MLX_DIR = minilibx-linux
 
-SRC = main.c
+SRC = $(SRC_DIR)/main.c $(SRC_DIR)/utils.c $(SRC_DIR)/utils1.c $(SRC_DIR)/utils2.c
 OBJ = $(SRC:.c=.o)
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) -I $(MLX_DIR)
+MLX_LIB = $(MLX_DIR)/libmlx.a
+MLX_FLAGS = -L $(MLX_DIR) -lmlx -L/usr/X11/lib -lX11 -lXext -lm
+RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -L/usr/X11/lib -I$(MLX_DIR) -lX11 -lXext -lm -lz -o $(NAME)
+$(NAME): $(OBJ) $(MLX_LIB)
+	$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I$(MLX_DIR) -O3 -c $< -o $@
+$(MLX_LIB):
+	make -C $(MLX_DIR)
+
+%.o: %.c $(INC_DIR)/fractol.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
+	make -C $(MLX_DIR) clean
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re
