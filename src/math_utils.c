@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:37:57 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/09 20:47:23 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/09 21:06:07 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,9 @@ t_complex	sum_complex(t_complex z1, t_complex z2)
 
 t_complex	square_complex(t_complex z)
 {
-	
+	t_complex	result;
+
+	result.x = (z.x * y.x) - (z.y * z.y);
+	result.y = 2 * z.x * z.y;
+	return (result);
 }
