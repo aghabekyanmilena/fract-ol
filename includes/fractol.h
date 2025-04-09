@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 17:14:44 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/03/31 22:48:06 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/09 20:22:26 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,42 @@
 # define FRACTOL_H
 
 # include "../minilibx-linux/mlx.h"
+# include "../libft/libft.h"
 # include <stdlib.h>
 # include <math.h>
-# define WIDTH 800
-# define HEIGHT 800
-# define MAX_ITER 100
+# include <unistd.h>
 
-typedef struct s_data
+#define WIDTH 800
+#define HEIGHT 800
+
+typedef struct s_image
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		line_length;
+	void	*img_ptr;
+	char	*pixel_ptr;
 	int		endian;
-	double	x_offset;
-	double	y_offset;
-	double	zoom;
-}	t_data;
+	int		bp; // byte per pixel
+	int		line_len;
+}	t_image;
 
-void	draw_mandelbrot(t_data *data);
-void	put_pixel(t_data *data, int x, int y, int color);
-int		mandelbrot(double cr, double ci);
-int		handle_key(int keycode, t_data *data);
-int		handle_close(t_data *data);
+
+typedef struct s_fractal
+{
+	char	*name;
+	void	*mlx_connection;
+	void	*mlx_window;
+	t_image	img;
+}	t_fractal;
+
+typedef struct s_complex
+{
+	double x;
+	double y;
+}	t_complex;
+
+void	fractal_init(t_fractal *fractal);
+void	fractal_render(t_fractal *fractal);
+void	pixel_handling(int x, int y, t_fractal *fractal);
+void	fractal_render(t_fractal *fractal);
+double	map(double num, double n_min, double n_max, double max);
 
 #endif

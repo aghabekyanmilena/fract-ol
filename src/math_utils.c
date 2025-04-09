@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils1.c                                           :+:      :+:    :+:   */
+/*   math_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 22:37:31 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/03/31 22:37:40 by miaghabe         ###   ########.fr       */
+/*   Created: 2025/04/09 18:37:57 by miaghabe          #+#    #+#             */
+/*   Updated: 2025/04/09 20:47:23 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	put_pixel(t_data *data, int x, int y, int color)
+double	map(double num, double n_min, double n_max, double max)
 {
-	char	*dst;
-
-	if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT)
-	{
-		dst = data->addr + (y * data->line_length + x * (data->bpp / 8));
-		*(unsigned int *)dst = color;
-	}
+	return ((n_max - n_min) * (num - 0) / (max - 0) + n_min);
 }
 
-int	handle_close(t_data *data)
+t_complex	sum_complex(t_complex z1, t_complex z2)
 {
-	mlx_destroy_window(data->mlx, data->win);
-	exit(0);
-	return (0);
+	t_complex result;
+
+	result.x = z1.x + z2.x;
+	result.y = z1.y + z2.y;
+	return (result);
+}
+
+t_complex	square_complex(t_complex z)
+{
+	
 }

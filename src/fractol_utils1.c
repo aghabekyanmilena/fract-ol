@@ -1,32 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fractol_utils1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/08 20:48:05 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/09 16:59:04 by miaghabe         ###   ########.fr       */
+/*   Created: 2025/04/09 18:13:39 by miaghabe          #+#    #+#             */
+/*   Updated: 2025/04/09 20:36:42 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int main(int argc, char **argv)
+void	pixel_handling(int x, int y, t_fractal *fractal)
 {
-	t_fractal	fractal;
+	t_complex	z;
+	t_complex	c;
 
-	if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
+	z.x = 0.0;
+	z.y = 0.0;
+	c.x = map(x, -2, 2, WIDTH);
+	c.y = map(y, 2, -2, HEIGHT);
+	while ()
 	{
-		fractal.name = argv[1];
-		fractal_init(&fractal);
-		fractal_render(&fractal);
-		mlx_loop(fractal.mlx_connection);
+		z = sum_complex(square_complex(z), c);
+		if ()
+		{
+			pixel_put();
+			return ;
+		}
 	}
-	else if (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
+}
+
+void	fractal_render(t_fractal *fractal)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (++y < HEIGHT)
 	{
-		
+		x = -1;
+		while (++x < WIDTH)
+			pixel_handling(x, y, fractal);
 	}
-	else
-		return(write(1, "Enter mandelbrot or julia\n", 26));
 }
