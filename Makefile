@@ -8,7 +8,7 @@ SRC = $(SRC_DIR)/main.c $(SRC_DIR)/fractol_utils.c $(SRC_DIR)/fractol_utils1.c $
 OBJ = $(SRC:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) -I $(MLX_DIR) -I $(LIBFT_DIR)
+CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) -I $(MLX_DIR) -I $(LIBFT_DIR) #-fsanitize=address 
 
 MLX_LIB = $(MLX_DIR)/libmlx.a
 LIBFT_LIB = $(LIBFT_DIR)/libft.a

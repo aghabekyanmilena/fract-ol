@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:13:39 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/11 14:34:29 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/11 16:20:39 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	fractal_render(t_fractal *fractal)
 	int	x;
 	int	y;
 
-	y = -1;
-	while (++y < HEIGHT)
+	y = 0;
+	while (y++ < HEIGHT)
 	{
-		x = -1;
-		while (++x < WIDTH)
+		x = 0;
+		while (x++ < WIDTH)
 			pixel_handling(x, y, fractal);
 	}
 	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_connection, \

@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 17:14:44 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/11 14:12:51 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/11 19:43:35 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <X11/X.h>
 
 #define WIDTH 800
 #define HEIGHT 800
@@ -73,5 +74,6 @@ void		fractal_render(t_fractal *fractal);
 double		map(double num, double n_min, double n_max, double max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
+int			key_handler(int keysym, t_fractal *fractal);
 
 #endif
