@@ -6,13 +6,13 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 20:48:05 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/09 16:59:04 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/11 14:07:30 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_fractal	fractal;
 
@@ -23,10 +23,9 @@ int main(int argc, char **argv)
 		fractal_render(&fractal);
 		mlx_loop(fractal.mlx_connection);
 	}
-	else if (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
-	{
-		
-	}
-	else
-		return(write(1, "Enter mandelbrot or julia\n", 26));
+// 	else if (argc == 4 && !ft_strncmp(argv[1], "julia", 5))
+// 	{
+// 	}
+// 	else
+// 		return (write(1, "Enter mandelbrot or julia\n", 26));
 }
