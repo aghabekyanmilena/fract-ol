@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 14:35:40 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/12 19:44:15 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/12 20:56:25 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	malloc_error(void)
 void	data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 4;
-	fractal->iterations = 42;
+	fractal->iterations = 200;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;
