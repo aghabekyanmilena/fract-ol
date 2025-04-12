@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:37:57 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/11 14:02:35 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/12 19:06:28 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 double	map(double num, double n_min, double n_max, double max)
 {
-	return ((n_max - n_min) * (num - 0) / (max - 0) + n_min);
+	double min;
+	
+	min = 0;
+	return ((n_max - n_min) * (num - min) / (max - min) + n_min);
 }
 
 t_complex	sum_complex(t_complex z1, t_complex z2)
@@ -33,4 +36,32 @@ t_complex	square_complex(t_complex z)
 	result.x = (z.x * z.x) - (z.y * z.y);
 	result.y = 2 * z.x * z.y;
 	return (result);
+}
+
+double	atodbl(char *s)
+{
+	long	integer_part;
+	double	fractional_part;
+	double	pow;
+	int		sign;
+
+	integer_part = 0;
+	fractional_part = 0;
+	sign = +1;
+	pow = 1;
+	while ((*s >= 9 && *s <= 13) || 32 == *s)
+		++s;
+	while ('+' == *s || '-' == *s)
+		if ('-' == *s++)
+			sign = -sign;
+	while (*s != '.' && *s)
+		integer_part = (integer_part * 10) + (*s++ - 48);
+	if ('.' == *s)
+		++s;
+	while (*s)
+	{
+		pow /= 10;
+		fractional_part = fractional_part + (*s++ - 48) * pow;
+	}
+	return ((integer_part + fractional_part) * sign);
 }

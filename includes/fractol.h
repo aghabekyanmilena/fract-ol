@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 17:14:44 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/11 19:43:35 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/12 18:30:54 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <X11/X.h>
+# include <X11/keysym.h>
 
 #define WIDTH 800
 #define HEIGHT 800
@@ -60,6 +61,11 @@ typedef struct s_fractal
 	t_image	img;
 	double	escape_value;
 	int		iterations;
+	double	shift_x;
+	double	shift_y;
+	double	zoom;
+	double	julia_x;
+	double	julia_y;
 }	t_fractal;
 
 typedef struct s_complex
@@ -74,6 +80,10 @@ void		fractal_render(t_fractal *fractal);
 double		map(double num, double n_min, double n_max, double max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
-int			key_handler(int keysym, t_fractal *fractal);
+int			key_handle(int keysym, t_fractal *fractal);
+int			close_handle(t_fractal *fractal);
+int			mouse_handle(int button, int x, int y, t_fractal *fractal);
+double		atodbl(char *s);
+int			julia_track(int x, int y, t_fractal *fractal);
 
 #endif

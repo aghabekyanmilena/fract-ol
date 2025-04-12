@@ -4,11 +4,12 @@ INC_DIR = includes
 MLX_DIR = minilibx-linux
 LIBFT_DIR = libft
 
-SRC = $(SRC_DIR)/main.c $(SRC_DIR)/fractol_utils.c $(SRC_DIR)/fractol_utils1.c $(SRC_DIR)/math_utils.c
+SRC = $(SRC_DIR)/main.c $(SRC_DIR)/fractol_utils.c $(SRC_DIR)/fractol_utils1.c $(SRC_DIR)/math_utils.c \
+		$(SRC_DIR)/handling_utils.c
 OBJ = $(SRC:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) -I $(MLX_DIR) -I $(LIBFT_DIR) #-fsanitize=address 
+CFLAGS = -Wall -Wextra -Werror -I $(INC_DIR) -I $(MLX_DIR) -I $(LIBFT_DIR) -fsanitize=address 
 
 MLX_LIB = $(MLX_DIR)/libmlx.a
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
@@ -17,7 +18,7 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(MLX_LIB) $(LIBFT_LIB)
+$(NAME): $(OBJ) $(MLX_LIB) $(LIBFT_LIB) 
 	$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) $(LIBFT_LIB) -o $(NAME)
 
 $(MLX_LIB):
@@ -26,7 +27,7 @@ $(MLX_LIB):
 $(LIBFT_LIB):
 	make -C $(LIBFT_DIR)
 
-%.o: %.c $(INC_DIR)/fractol.h
+%.o: %.c $(INC_DIR)/fractol.h Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
