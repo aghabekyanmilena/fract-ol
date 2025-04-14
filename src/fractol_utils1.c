@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:13:39 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/14 12:05:05 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/14 15:56:44 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,20 @@ static void	pixel_put(int x, int y, t_image *img, int color)
 	*(unsigned int *)(img->pixel_ptr + offset) = color;
 }
 
-// static void	mandelbrot_or_julia(t_complex *z, t_complex *c, t_fractal *fractal)
-// {
-// 	if (!ft_strncmp(fractal->name, "julia", 5))
-// 	{
-// 		c->x = fractal->julia_x;
-// 		c->y = fractal->julia_y;
-// 	}
-// 	else
-// 	{
-// 		c->x = z->x;
-// 		c->y = z->y;
-// 	}
-// }
+static void	mandelbrot_or_julia(t_complex *z, t_complex *c, t_fractal *fractal)
+{
+	if (!ft_strncmp(fractal->name, "julia", 5))
+	{
+		c->x = fractal->julia_x;
+		c->y = fractal->julia_y;
+	}
+	else
+	{
+		c->x = z->x;
+		c->y = z->y;
+	}
+}
+
 static int	get_color(int i, int max_iter)
 {
 	double	t;
@@ -47,30 +48,6 @@ static int	get_color(int i, int max_iter)
 	return ((r << 16) | (g << 8) | b);
 }
 
-// static void	pixel_handling(int x, int y, t_fractal *fractal)
-// {
-// 	t_complex	z;
-// 	t_complex	c;
-// 	int			i;
-// 	int			color;
-
-// 	i = 0;
-// 	z.x = (map(x, -2, 2, SIZE) * fractal->zoom) + fractal->shift_x;
-// 	z.y = (map(y, 2, -2, SIZE) * fractal->zoom) + fractal->shift_y;
-// 	mandelbrot_or_julia(&z, &c, fractal);
-// 	while (i < fractal->iterations)
-// 	{
-// 		z = sum_complex(square_complex(z), c);
-// 		if (((z.x * z.x) + (z.y * z.y)) > fractal->escape_value)
-// 		{
-// 			color = get_color(i, fractal->iterations);
-// 			pixel_put(x, y, &fractal->img, color);
-// 			return ;
-// 		}
-// 		i++;
-// 	}
-// 	pixel_put(x, y, &fractal->img, WHITE);
-// }
 static void	pixel_handling(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
@@ -81,16 +58,7 @@ static void	pixel_handling(int x, int y, t_fractal *fractal)
 	i = 0;
 	z.x = (map(x, -2, 2, SIZE) * fractal->zoom) + fractal->shift_x;
 	z.y = (map(y, 2, -2, SIZE) * fractal->zoom) + fractal->shift_y;
-	if (!ft_strncmp(fractal->name, "julia", 5))
-	{
-		c.x = fractal->julia_x;
-		c.y = fractal->julia_y;
-	}
-	else
-	{
-		c.x = z.x;
-		c.y = z.y;
-	}
+	mandelbrot_or_julia(&z, &c, fractal);
 	while (i++ < fractal->iterations)
 	{
 		if (!ft_strncmp(fractal->name, "burningship", 11))

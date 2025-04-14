@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:37:57 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/12 19:06:28 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/14 15:59:44 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 double	map(double num, double n_min, double n_max, double max)
 {
-	double min;
-	
+	double	min;
+
 	min = 0;
 	return ((n_max - n_min) * (num - min) / (max - min) + n_min);
 }

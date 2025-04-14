@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 20:48:05 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/14 12:02:59 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:00:18 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ int	main(int argc, char **argv)
 {
 	t_fractal	fractal;
 
-	// if ((2 == argc && !ft_strncmp(argv[1], "mandelbrot", 10))
-	// 	|| (4 == argc && !ft_strncmp(argv[1], "julia", 5)))
 	if ((2 == argc && (!ft_strncmp(argv[1], "mandelbrot", 10)
-	|| !ft_strncmp(argv[1], "burningship", 11)))
-	|| (4 == argc && !ft_strncmp(argv[1], "julia", 5)))
+				|| !ft_strncmp(argv[1], "burningship", 11)))
+		|| (4 == argc && !ft_strncmp(argv[1], "julia", 5)))
 	{
 		fractal.name = argv[1];
 		if (!ft_strncmp(fractal.name, "julia", 5))
@@ -33,6 +31,6 @@ int	main(int argc, char **argv)
 		mlx_loop(fractal.mlx_connection);
 	}
 	else
-		write(1, "Enter mandelbrot or julia\n", 26);
+		write(1, "Enter mandelbrot, julia or burningship\n", 39);
 	return (0);
 }

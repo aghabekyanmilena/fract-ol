@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 17:14:44 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/14 11:50:37 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:07:32 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,24 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
-#define SIZE 1000
+# define SIZE 1000
 
 // colors
-#define BLACK	0x000000
-#define WHITE	0xFFFFFF
-#define RED		0xFF0000
-#define GREEN	0x00FF00
-#define BLUE 	0x0000FF
+# define BLACK	0x000000
+# define WHITE	0xFFFFFF
+# define RED		0xFF0000
+# define GREEN	0x00FF00
+# define BLUE 	0x0000FF
 
 // Psychedelic colors
-#define MAGENTA_BURST	0xFF00FF
-#define LIME_SHOCK		0xCCFF00
-#define NEON_ORANGE		0xFF6600
-#define PSY_PURPLE		0x660066
-#define AQUA_DREAM		0x33CCCC
-#define HOT_PINK		0xFF66B2
-#define ELECTRIC_BLUE	0x0066FF
-#define LAVA_RED		0xFF3300
-
+# define MAGENTA_BURST	0xFF00FF
+# define LIME_SHOCK		0xCCFF00
+# define NEON_ORANGE	0xFF6600
+# define PSY_PURPLE		0x660066
+# define AQUA_DREAM		0x33CCCC
+# define HOT_PINK		0xFF66B2
+# define ELECTRIC_BLUE	0x0066FF
+# define LAVA_RED		0xFF3300
 
 typedef struct s_image
 {
@@ -50,7 +49,6 @@ typedef struct s_image
 	int		bp; // byte per pixel
 	int		line_len;
 }	t_image;
-
 
 typedef struct s_fractal
 {
@@ -69,8 +67,8 @@ typedef struct s_fractal
 
 typedef struct s_complex
 {
-	double x;
-	double y;
+	double	x;
+	double	y;
 }	t_complex;
 
 void		fractal_init(t_fractal *fractal);
