@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 17:14:44 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/12 20:12:23 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/14 11:50:37 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
-#define WIDTH 800 //replace
-#define HEIGHT 800
+#define SIZE 1000
 
 // colors
 #define BLACK	0x000000

@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 14:35:40 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/12 20:56:25 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/14 11:49:24 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	malloc_error(void)
 void	data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 4;
-	fractal->iterations = 200;
+	fractal->iterations = 42;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;
@@ -43,16 +43,16 @@ void	fractal_init(t_fractal *fractal)
 	fractal->mlx_connection = mlx_init();
 	if (!fractal->mlx_connection)
 		malloc_error();
-	fractal->mlx_window = mlx_new_window(fractal->mlx_connection, WIDTH, \
-		HEIGHT, fractal->name);
+	fractal->mlx_window = mlx_new_window(fractal->mlx_connection, SIZE, \
+		SIZE, fractal->name);
 	if (!fractal->mlx_window)
 	{
 		mlx_destroy_display(fractal->mlx_connection);
 		free(fractal->mlx_connection);
 		malloc_error();
 	}
-	fractal->img.img_ptr = mlx_new_image(fractal->mlx_connection, WIDTH, \
-		HEIGHT);
+	fractal->img.img_ptr = mlx_new_image(fractal->mlx_connection, SIZE, \
+		SIZE);
 	if (!fractal->img.img_ptr)
 	{
 		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
