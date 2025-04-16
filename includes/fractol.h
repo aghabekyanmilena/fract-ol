@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 17:14:44 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/14 16:07:32 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/16 14:42:16 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,22 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
-# define SIZE 1000
+# define SIZE 500
 
 // colors
 # define BLACK	0x000000
 # define WHITE	0xFFFFFF
-# define RED		0xFF0000
+# define RED	0xFF0000
 # define GREEN	0x00FF00
 # define BLUE 	0x0000FF
 
-// Psychedelic colors
-# define MAGENTA_BURST	0xFF00FF
-# define LIME_SHOCK		0xCCFF00
-# define NEON_ORANGE	0xFF6600
-# define PSY_PURPLE		0x660066
-# define AQUA_DREAM		0x33CCCC
-# define HOT_PINK		0xFF66B2
-# define ELECTRIC_BLUE	0x0066FF
-# define LAVA_RED		0xFF3300
+# define ZOOM_IN1 61
+# define ZOOM_OUT1 45
+# define ZOOM_IN2 65451
+# define ZOOM_OUT2 65453
+
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
 
 typedef struct s_image
 {
@@ -73,7 +71,6 @@ typedef struct s_complex
 
 void		fractal_init(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
-void		fractal_render(t_fractal *fractal);
 double		map(double num, double n_min, double n_max, double max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
@@ -82,5 +79,6 @@ int			close_handle(t_fractal *fractal);
 int			mouse_handle(int button, int x, int y, t_fractal *fractal);
 double		atodbl(char *s);
 int			julia_track(int x, int y, t_fractal *fractal);
+void		clean(t_fractal *fractal);
 
 #endif
