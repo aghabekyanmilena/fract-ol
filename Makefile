@@ -5,7 +5,7 @@ MLX_DIR = minilibx-linux
 LIBFT_DIR = libft
 
 SRC = $(SRC_DIR)/main.c $(SRC_DIR)/fractol_utils.c $(SRC_DIR)/fractol_utils1.c $(SRC_DIR)/math_utils.c \
-		$(SRC_DIR)/handling_utils.c
+		$(SRC_DIR)/handling_utils.c $(SRC_DIR)/handling_utils1.c $(SRC_DIR)/handling_pixels.c
 OBJ = $(SRC:.c=.o)
 
 CC = cc

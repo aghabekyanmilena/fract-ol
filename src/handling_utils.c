@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 19:32:46 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/16 14:55:18 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/16 19:06:08 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,49 +21,30 @@ int	close_handle(t_fractal *fractal)
 	exit(EXIT_SUCCESS);
 }
 
-int	key_handle(int keysym, t_fractal *fractal)
+static void	mouse_zoom(t_fractal *fractal, int button, int x, int y)
 {
-	if (keysym == XK_Escape)
-		close_handle(fractal);
-	else if (keysym == XK_Left)
-		fractal->shift_x += (0.5 * fractal->zoom);
-	else if (keysym == XK_Right)
-		fractal->shift_x -= (0.5 * fractal->zoom);
-	else if (keysym == XK_Up)
-		fractal->shift_y -= (0.5 * fractal->zoom);
-	else if (keysym == XK_Down)
-		fractal->shift_y += (0.5 * fractal->zoom);
-	else if (keysym == XK_plus)
-		fractal->iterations += 10;
-	else if (keysym == XK_minus)
-		fractal->iterations -= 10;
-	else if (keysym == ZOOM_IN1 || keysym == ZOOM_IN2)
-		fractal->zoom /= 1.1;
-	else if (keysym == ZOOM_OUT1 || keysym == ZOOM_OUT2)
-		fractal->zoom *= 1.1;
-	fractal_render(fractal);
-	return (0);
-}
-
-static void	mouse_zoom(t_fractal *fractal, int keycode, int x, int y)
-{
-	double	center_x;
-	double	center_y;
+	double	mouse_re;
+	double	mouse_im;
 	double	zoom_factor;
-	double	prev_zoom;
+	double	new_height;
+	double	new_width;
 
-	prev_zoom = fractal->zoom;
-	center_x = SIZE / 2.0;
-	center_y = SIZE / 2.0;
-	if (keycode == SCROLL_UP)
+	if (button == SCROLL_UP)
+		zoom_factor = 0.9;
+	else if (button == SCROLL_DOWN)
 		zoom_factor = 1.1;
 	else
-		zoom_factor = 1 / 1.1;
-	fractal->zoom *= zoom_factor;
-	fractal->shift_x -= ((x - center_x) / SIZE
-			* (fractal->zoom - prev_zoom)) * 5;
-	fractal->shift_y -= ((y - center_y) / SIZE
-			* (fractal->zoom - prev_zoom)) * 5;
+		return ;
+	mouse_re = fractal->min_re + ((double)x / SIZE) * (fractal->max_re
+			- fractal->min_re);
+	mouse_im = fractal->min_im + ((double)y / SIZE) * (fractal->max_im
+			- fractal->min_im);
+	new_width = (fractal->max_re - fractal->min_re) * zoom_factor;
+	new_height = (fractal->max_im - fractal->min_im) * zoom_factor;
+	fractal->min_re = mouse_re - ((mouse_re - fractal->min_re) * zoom_factor);
+	fractal->max_re = fractal->min_re + new_width;
+	fractal->min_im = mouse_im - ((mouse_im - fractal->min_im) * zoom_factor);
+	fractal->max_im = fractal->min_im + new_height;
 }
 
 int	mouse_handle(int button, int x, int y, t_fractal *fractal)
