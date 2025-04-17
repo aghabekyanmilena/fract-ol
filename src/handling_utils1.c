@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 18:30:27 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/16 18:49:50 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:06:17 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	key_handle(int keysym, t_fractal *fractal)
 		zoom(keysym, fractal);
 	else if (keysym == XK_m)
 		fractal->color_shift += 5;
+	else if (keysym == XK_l)
+		fractal->flag = !fractal->flag;
 	fractal_render(fractal);
 	return (0);
 }

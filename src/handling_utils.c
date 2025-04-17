@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 19:32:46 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/16 19:06:08 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:11:17 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ int	mouse_handle(int button, int x, int y, t_fractal *fractal)
 
 int	julia_track(int x, int y, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5))
+	if (!ft_strncmp(fractal->name, "julia", 5) && !fractal->flag)
 	{
-		fractal->julia_x = (map(x, -2, +2, SIZE) * fractal->zoom)
-			+ fractal->shift_x;
-		fractal->julia_y = (map(y, +2, -2, SIZE) * fractal->zoom)
-			+ fractal->shift_y;
+		fractal->julia_x = fractal->min_re + ((double)x / SIZE)
+			* (fractal->max_re - fractal->min_re);
+		fractal->julia_y = fractal->min_im + ((double)y / SIZE)
+			* (fractal->max_im - fractal->min_im);
 		fractal_render(fractal);
 	}
 	return (0);

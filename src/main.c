@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 20:48:05 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/16 17:42:27 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:13:12 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int	main(int argc, char **argv)
 		mlx_loop(fractal.mlx_connection);
 	}
 	else
-		write(1, "Enter mandelbrot, julia or burningship\n", 39);
+		write(1, "Enter mandelbrot, (julia x y) or burningship\n", 39);
 	return (0);
 }

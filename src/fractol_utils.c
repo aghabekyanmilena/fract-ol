@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 14:35:40 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/16 18:12:20 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:09:52 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	data_init(t_fractal *fractal)
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;
+	fractal->flag = 0;
 }
 
 void	clean(t_fractal *fractal)
