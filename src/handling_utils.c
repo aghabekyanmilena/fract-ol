@@ -6,11 +6,11 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 19:32:46 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/17 16:11:17 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/18 13:31:15 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "fractol.h"
 
 int	close_handle(t_fractal *fractal)
 {
@@ -57,7 +57,7 @@ int	mouse_handle(int button, int x, int y, t_fractal *fractal)
 
 int	julia_track(int x, int y, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5) && !fractal->flag)
+	if (!ft_strcmp(fractal->name, "julia") && !fractal->flag)
 	{
 		fractal->julia_x = fractal->min_re + ((double)x / SIZE)
 			* (fractal->max_re - fractal->min_re);

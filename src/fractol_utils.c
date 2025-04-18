@@ -6,11 +6,11 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 14:35:40 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/17 16:09:52 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:56:55 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "fractol.h"
 
 static void	malloc_error(void)
 {

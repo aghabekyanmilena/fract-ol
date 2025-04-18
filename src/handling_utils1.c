@@ -6,11 +6,11 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 18:30:27 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/17 16:06:17 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/17 16:58:17 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "fractol.h"
 
 int	key_handle(int keysym, t_fractal *fractal)
 {

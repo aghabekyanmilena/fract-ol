@@ -6,11 +6,11 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:13:39 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/16 19:04:23 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/18 13:12:00 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "fractol.h"
 
 void	pixel_put(int x, int y, t_image *img, int color)
 {
@@ -22,7 +22,7 @@ void	pixel_put(int x, int y, t_image *img, int color)
 
 void	mandelbrot_or_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5))
+	if (!ft_strcmp(fractal->name, "julia"))
 	{
 		c->x = fractal->julia_x;
 		c->y = fractal->julia_y;

@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 17:14:44 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/17 16:04:22 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/18 14:16:09 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,6 @@
 
 # define SIZE 500
 
-// colors
-# define BLACK	0x000000
-# define WHITE	0xFFFFFF
-# define RED	0xFF0000
-# define GREEN	0x00FF00
-# define BLUE 	0x0000FF
-
 # define ZOOM_IN1 61
 # define ZOOM_OUT1 45
 # define ZOOM_IN2 65451
@@ -44,7 +37,7 @@ typedef struct s_image
 	void	*img_ptr;
 	char	*pixel_ptr;
 	int		endian;
-	int		bp; // byte per pixel
+	int		bp;
 	int		line_len;
 }	t_image;
 
@@ -77,13 +70,11 @@ typedef struct s_complex
 
 void		fractal_init(t_fractal *fractal);
 void		fractal_render(t_fractal *fractal);
-double		map(double num, double n_min, double n_max, double max);
 t_complex	sum_complex(t_complex z1, t_complex z2);
 t_complex	square_complex(t_complex z);
 int			key_handle(int keysym, t_fractal *fractal);
 int			close_handle(t_fractal *fractal);
 int			mouse_handle(int button, int x, int y, t_fractal *fractal);
-double		atodbl(char *s);
 int			julia_track(int x, int y, t_fractal *fractal);
 void		clean(t_fractal *fractal);
 void		arrows(int keysym, t_fractal *fractal);
@@ -92,5 +83,9 @@ void		mandelbrot_or_julia(t_complex *z, t_complex *c, t_fractal *fractal);
 int			get_color(int i, int max_iter, int color_shift);
 void		pixel_handling(int x, int y, t_fractal *fractal);
 void		pixel_put(int x, int y, t_image *img, int color);
+int			ft_strcmp(char *s1, char *s2);
+double		atodbl(char *s);
+int		check_julia_input(char *argv);
+
 
 #endif

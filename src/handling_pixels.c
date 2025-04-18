@@ -6,11 +6,11 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 18:58:08 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/17 16:04:06 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/18 13:14:35 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "fractol.h"
 
 static t_complex	get_initial_z(int x, int y, t_fractal *fractal)
 {
@@ -30,7 +30,7 @@ static int	compute_pixel_color(t_complex z, t_complex c, t_fractal *fractal)
 	i = 0;
 	while (i++ < fractal->iterations)
 	{
-		if (!ft_strncmp(fractal->name, "burningship", 11))
+		if (!ft_strcmp(fractal->name, "burningship"))
 		{
 			z.x = fabs(z.x);
 			z.y = fabs(z.y);
