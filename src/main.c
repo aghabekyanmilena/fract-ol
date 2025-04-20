@@ -6,11 +6,22 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 20:48:05 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/18 14:21:30 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/20 15:44:57 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	check_zeros(char *argv)
+{
+	int	i;
+
+	i = 0;
+	if (argv[i] == '0' && !ft_strchr(argv, '.'))
+		exit(EXIT_FAILURE);
+	if (argv[i] == '0' && argv[i + 1] == '0' && ft_strchr(argv, '.'))
+		exit(EXIT_FAILURE);
+}
 
 int	main(int argc, char **argv)
 {
@@ -33,6 +44,13 @@ int	main(int argc, char **argv)
 		mlx_loop(fractal.mlx_connection);
 	}
 	else
-		write(1, "Enter mandelbrot, julia or burningship\n", 40);
+		write(1, "Enter mandelbrot, (julia x y) or burningship\n", 46);
+	return (0);
+}
+
+
+
+int main() {
+	printf("hello\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 17:14:44 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/18 14:16:09 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/20 15:35:01 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void		pixel_handling(int x, int y, t_fractal *fractal);
 void		pixel_put(int x, int y, t_image *img, int color);
 int			ft_strcmp(char *s1, char *s2);
 double		atodbl(char *s);
-int		check_julia_input(char *argv);
-
+int			check_julia_input(char *argv);
+void		check_zeros(char *argv);
 
 #endif

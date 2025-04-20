@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:37:57 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/18 14:15:14 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/04/20 15:37:54 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,29 @@ int	ft_strcmp(char *s1, char *s2)
 	}
 	return (0);
 }
+
 int	check_julia_input(char *argv)
 {
 	int	i;
 
 	i = 0;
-	while (ft_isspace(argv[i]) && argv[i])
-		i++;
+	check_zeros(argv);
 	if (argv[i] == '-' || argv[i] == '+')
 		++i;
-	if (!argv[i] && atodbl(argv) <= 2.0 && atodbl(argv) >= -2.0)
-		return (1);
-	++i;
-	while (argv[i] && !ft_isspace(argv[i]))
+	while (argv[i] != '.' && argv[i])
 	{
 		if (!ft_isdigit(argv[i]))
 			exit(EXIT_FAILURE);
 		++i;
 	}
+	if (!argv[i] && atodbl(argv) <= 2.0 && atodbl(argv) >= -2.0)
+		return (1);
+	while (argv[++i] && !ft_isspace(argv[i]))
+		if (!ft_isdigit(argv[i]))
+			exit(EXIT_FAILURE);
 	while (ft_isspace(argv[i]) && argv[i])
 		i++;
-	if (argv[i] || atodbl(argv) > 2.0 || atodbl(argv) <= -2.0)
+	if (argv[i] || atodbl(argv) > 2.0 || atodbl(argv) < -2.0)
 		exit(EXIT_FAILURE);
 	return (1);
 }
