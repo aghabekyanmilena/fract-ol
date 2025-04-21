@@ -18,7 +18,7 @@ It supports interactive exploration of several fractal types, including Mandelbr
 - Linux
 - cc
 - Make
-- MiniLibX (included or install via your 42 environment)
+- MiniLibX (included or install via your 42 environment)
 
 ### Build
 
