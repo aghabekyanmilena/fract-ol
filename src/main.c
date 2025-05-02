@@ -6,7 +6,7 @@
 /*   By: miaghabe <miaghabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 20:48:05 by miaghabe          #+#    #+#             */
-/*   Updated: 2025/04/20 15:44:57 by miaghabe         ###   ########.fr       */
+/*   Updated: 2025/05/02 23:39:24 by miaghabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		write(1, "Enter mandelbrot, (julia x y) or burningship\n", 46);
-	return (0);
-}
-
-
-
-int main() {
-	printf("hello\n");
 	return (0);
 }
